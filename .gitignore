@@ -1,0 +1,24 @@
+# Virtual environment
+venv/
+
+# Environment variables / secrets
+.env
+*.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+logs/*.log
+
+# Eval / data artifacts that may grow large
+data/*.index
+data/*.pkl
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
