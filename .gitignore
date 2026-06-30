@@ -15,6 +15,7 @@ logs/*.log
 # Eval / data artifacts that may grow large
 data/*.index
 data/*.pkl
+data/*.npz
 
 # OS junk
 .DS_Store

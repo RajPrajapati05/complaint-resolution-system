@@ -1,0 +1,44 @@
+[
+  {
+    "id": "C001",
+    "complaint_text": "I was charged twice for my monthly subscription and support hasn't responded in a week.",
+    "category": "billing",
+    "resolution": "Refunded the duplicate charge within 3 business days and applied a one-month service credit for the delayed response."
+  },
+  {
+    "id": "C002",
+    "complaint_text": "My package was supposed to arrive 5 days ago and tracking hasn't updated since it left the warehouse.",
+    "category": "shipping_delay",
+    "resolution": "Issued a full shipping refund and expedited a replacement shipment at no extra cost."
+  },
+  {
+    "id": "C003",
+    "complaint_text": "The blender I bought stopped working after two uses and smells like burning plastic.",
+    "category": "product_defect",
+    "resolution": "Processed a full refund and flagged the product batch for quality control review."
+  },
+  {
+    "id": "C004",
+    "complaint_text": "Someone accessed my account and changed my password without my permission.",
+    "category": "fraud_or_security",
+    "resolution": "Locked the account, forced a password reset, reviewed account activity logs, and confirmed no unauthorized purchases were made."
+  },
+  {
+    "id": "C005",
+    "complaint_text": "I've called customer service four times about my billing issue and keep getting transferred with no resolution.",
+    "category": "customer_service",
+    "resolution": "Escalated to a senior support specialist who resolved the billing discrepancy in a single call and issued a service credit for the inconvenience."
+  },
+  {
+    "id": "C006",
+    "complaint_text": "I can't log into my account even after resetting my password three times.",
+    "category": "account_access",
+    "resolution": "Identified a cached session bug, manually cleared the account lock, and verified successful login with the customer."
+  },
+  {
+    "id": "C007",
+    "complaint_text": "I'm being charged for a premium plan I never signed up for.",
+    "category": "billing",
+    "resolution": "Downgraded the account to the correct plan, refunded all premium charges, and added a billing alert preference to the account."
+  }
+]
