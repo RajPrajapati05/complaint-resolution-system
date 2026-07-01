@@ -54,5 +54,14 @@
     "expected_urgency": "critical",
     "expected_compliance_flag": true,
     "notes": "Legal threat + regulatory body mention - must flag compliance"
+  },
+  {
+    "id": "HC001",
+    "complaint_text": "I keep getting double charged on my account every month and nobody is helping me.",
+    "expected_category": "unknown",
+    "expected_urgency": "unknown",
+    "expected_compliance_flag": false,
+    "notes": "Human-corrected example. Reason: Original draft made an unsupported promise about service credit not grounded in policy.",
+    "source": "human_feedback"
   }
 ]
