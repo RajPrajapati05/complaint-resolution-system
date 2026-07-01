@@ -1,0 +1,170 @@
+{
+  "total_examples": 7,
+  "category_accuracy": "100.0%",
+  "urgency_accuracy": "57.1%",
+  "compliance_flag_accuracy": "85.7%",
+  "overall_accuracy": "57.1%",
+  "results": [
+    {
+      "id": "E001",
+      "complaint_text": "I was charged twice for my subscription this month and no one is responding to my emails.",
+      "expected": {
+        "category": "billing",
+        "urgency": "high",
+        "compliance_flag": false
+      },
+      "predicted": {
+        "category": "billing",
+        "urgency": "high",
+        "compliance_flag": false
+      },
+      "correct": {
+        "category": true,
+        "urgency": true,
+        "compliance_flag": true
+      },
+      "all_correct": true,
+      "latency_ms": 2200.33,
+      "model_used": "gemini-2.5-flash-lite",
+      "notes": "Clear duplicate charge complaint, no legal threat"
+    },
+    {
+      "id": "E002",
+      "complaint_text": "My package has been stuck in transit for 12 days with no update. I need this for an urgent event.",
+      "expected": {
+        "category": "shipping_delay",
+        "urgency": "high",
+        "compliance_flag": false
+      },
+      "predicted": {
+        "category": "shipping_delay",
+        "urgency": "high",
+        "compliance_flag": false
+      },
+      "correct": {
+        "category": true,
+        "urgency": true,
+        "compliance_flag": true
+      },
+      "all_correct": true,
+      "latency_ms": 1256.51,
+      "model_used": "gemini-2.5-flash-lite",
+      "notes": "Shipping delay with urgency signal"
+    },
+    {
+      "id": "E003",
+      "complaint_text": "The laptop I received has a cracked screen and won't turn on. This is a safety concern.",
+      "expected": {
+        "category": "product_defect",
+        "urgency": "critical",
+        "compliance_flag": true
+      },
+      "predicted": {
+        "category": "product_defect",
+        "urgency": "critical",
+        "compliance_flag": true
+      },
+      "correct": {
+        "category": true,
+        "urgency": true,
+        "compliance_flag": true
+      },
+      "all_correct": true,
+      "latency_ms": 1191.57,
+      "model_used": "gemini-2.5-flash-lite",
+      "notes": "Safety hazard mentioned - compliance flag expected"
+    },
+    {
+      "id": "E004",
+      "complaint_text": "I think someone hacked into my account and made purchases I did not authorize.",
+      "expected": {
+        "category": "fraud_or_security",
+        "urgency": "critical",
+        "compliance_flag": true
+      },
+      "predicted": {
+        "category": "fraud_or_security",
+        "urgency": "high",
+        "compliance_flag": false
+      },
+      "correct": {
+        "category": true,
+        "urgency": false,
+        "compliance_flag": false
+      },
+      "all_correct": false,
+      "latency_ms": 1412.01,
+      "model_used": "gemini-2.5-flash-lite",
+      "notes": "Unauthorized access - security + compliance flag"
+    },
+    {
+      "id": "E005",
+      "complaint_text": "I have been trying to reset my password for three days and the reset email never arrives.",
+      "expected": {
+        "category": "account_access",
+        "urgency": "medium",
+        "compliance_flag": false
+      },
+      "predicted": {
+        "category": "account_access",
+        "urgency": "high",
+        "compliance_flag": false
+      },
+      "correct": {
+        "category": true,
+        "urgency": false,
+        "compliance_flag": true
+      },
+      "all_correct": false,
+      "latency_ms": 1116.57,
+      "model_used": "gemini-2.5-flash-lite",
+      "notes": "Account access issue, no urgency escalators"
+    },
+    {
+      "id": "E006",
+      "complaint_text": "Your customer service agent was extremely rude and hung up on me. I want to file a formal complaint.",
+      "expected": {
+        "category": "customer_service",
+        "urgency": "medium",
+        "compliance_flag": false
+      },
+      "predicted": {
+        "category": "customer_service",
+        "urgency": "high",
+        "compliance_flag": false
+      },
+      "correct": {
+        "category": true,
+        "urgency": false,
+        "compliance_flag": true
+      },
+      "all_correct": false,
+      "latency_ms": 1590.36,
+      "model_used": "gemini-2.5-flash-lite",
+      "notes": "Customer service quality complaint"
+    },
+    {
+      "id": "E007",
+      "complaint_text": "I am going to report your company to the consumer protection agency if this billing issue is not resolved today. I have already consulted a lawyer.",
+      "expected": {
+        "category": "billing",
+        "urgency": "critical",
+        "compliance_flag": true
+      },
+      "predicted": {
+        "category": "billing",
+        "urgency": "critical",
+        "compliance_flag": true
+      },
+      "correct": {
+        "category": true,
+        "urgency": true,
+        "compliance_flag": true
+      },
+      "all_correct": true,
+      "latency_ms": 1789.12,
+      "model_used": "gemini-2.5-flash-lite",
+      "notes": "Legal threat + regulatory body mention - must flag compliance"
+    }
+  ]
+}
