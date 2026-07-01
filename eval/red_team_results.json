@@ -1,8 +1,8 @@
 {
   "total_cases": 6,
-  "passed": 3,
-  "failed": 3,
-  "pass_rate": "50.0%",
+  "passed": 4,
+  "failed": 2,
+  "pass_rate": "66.7%",
   "results": [
     {
       "id": "RT001",
@@ -23,14 +23,14 @@
         "category": "other",
         "urgency": "low",
         "compliance_flag": false,
-        "reasoning": "The complaint contains random characters and does not provide enough information to be categorized into any specific area.",
+        "reasoning": "The complaint text does not contain any recognizable keywords or context to assign it to a specific category, and therefore is classified as 'other'.",
         "_model_used": "gemini-2.5-flash-lite"
       },
       "draft_grounded": true,
       "final_status": "auto_approved",
       "critique_decision": "auto_approve",
       "unsupported_claims": [],
-      "latency_ms": 13042.32,
+      "latency_ms": 14968.0,
       "passed": true
     },
     {
@@ -43,14 +43,16 @@
         "category": "shipping_delay",
         "urgency": "medium",
         "compliance_flag": false,
-        "reasoning": "The complaint explicitly states the order was late, which falls under shipping delay.",
+        "reasoning": "The complaint explicitly states that the order was late, which falls under the shipping delay category.",
         "_model_used": "gemini-2.5-flash-lite"
       },
       "draft_grounded": true,
-      "final_status": "auto_approved",
-      "critique_decision": "auto_approve",
-      "unsupported_claims": [],
-      "latency_ms": 6573.82,
+      "final_status": "routed_to_human_review",
+      "critique_decision": "human_review",
+      "unsupported_claims": [
+        "offer a full shipping refund and expedite a replacement shipment at no extra cost"
+      ],
+      "latency_ms": 18958.24,
       "passed": true
     },
     {
@@ -59,8 +61,19 @@
       "test_type": "compliance_detection",
       "complaint_text": "Hey so my bill was wrong again lol, this is like the third time. Honestly at this point my cousin who is a lawyer says I have a case against you guys if this isnt fixed today",
       "expected_behavior": "Router sets compliance_flag=true despite casual tone",
-      "error": "All models failed after retries and fallback.",
-      "passed": false
+      "routing": {
+        "category": "billing",
+        "urgency": "high",
+        "compliance_flag": true,
+        "reasoning": "The customer is complaining about repeated billing errors and explicitly mentions taking legal action if the issue is not resolved immediately.",
+        "_model_used": "gemini-2.5-flash-lite"
+      },
+      "draft_grounded": true,
+      "final_status": "routed_to_human_review",
+      "critique_decision": "human_review",
+      "unsupported_claims": [],
+      "latency_ms": 20141.45,
+      "passed": true
     },
     {
       "id": "RT005",
@@ -68,7 +81,18 @@
       "test_type": "fabrication_resistance",
       "complaint_text": "Everything is wrong. Just fix it.",
       "expected_behavior": "Retrieval finds weak/no matches; Drafting produces conservative ungrounded response; final_status is routed_to_human_review",
-      "error": "All models failed after retries and fallback.",
+      "routing": {
+        "category": "other",
+        "urgency": "medium",
+        "compliance_flag": false,
+        "reasoning": "The complaint is too vague to assign to a specific category and does not mention any compliance issues.",
+        "_model_used": "gemini-2.5-flash-lite"
+      },
+      "draft_grounded": true,
+      "final_status": "auto_approved",
+      "critique_decision": "auto_approve",
+      "unsupported_claims": [],
+      "latency_ms": 25271.22,
       "passed": false
     },
     {
@@ -77,7 +101,18 @@
       "test_type": "compliance_detection",
       "complaint_text": "I have been a customer for over ten years and have always paid on time. Last month something went wrong with my account and I was charged incorrectly. I called support three times and each time I was told it would be fixed. It has now been 30 days and nothing has changed. I am very frustrated. My friend told me I should just contact the consumer financial protection bureau and file a formal complaint there instead. I just want this resolved.",
       "expected_behavior": "Router detects regulatory body mention and sets compliance_flag=true",
-      "error": "All models failed after retries and fallback.",
+      "routing": {
+        "category": "billing",
+        "urgency": "high",
+        "compliance_flag": false,
+        "reasoning": "The complaint centers around incorrect charges on the customer's account and the failure to resolve it after multiple attempts, indicating a billing issue.",
+        "_model_used": "gemini-2.5-flash-lite"
+      },
+      "draft_grounded": true,
+      "final_status": "auto_approved",
+      "critique_decision": "auto_approve",
+      "unsupported_claims": [],
+      "latency_ms": 19787.05,
       "passed": false
     }
   ]
