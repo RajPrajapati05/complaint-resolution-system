@@ -4,6 +4,7 @@ import time
 import uuid
 from datetime import datetime, timezone
 
+from agents.versioning import log_version_event
 from agents.router_agent import RouterAgent
 from agents.retrieval_agent import RetrievalAgent
 from agents.drafting_agent import DraftingAgent
@@ -69,6 +70,12 @@ class Orchestrator:
             else "routed_to_human_review"
         )
 
+        log_version_event(trace_id, "router", route_result.get("_model_used", "unknown"))
+        log_version_event(trace_id, "drafting", draft_result.get("_model_used", "unknown"))
+        log_version_event(trace_id, "critique", critique_result.get("_model_used", "unknown"))
+
+        self._log_stage(trace_id, "pipeline_complete", total_duration_ms, {"final_status": final_status})
+
         result = {
             "trace_id": trace_id,
             "complaint_text": complaint_text,
@@ -79,8 +86,6 @@ class Orchestrator:
             "final_status": final_status,
             "total_duration_ms": round(total_duration_ms, 2),
         }
-
-        self._log_stage(trace_id, "pipeline_complete", total_duration_ms, {"final_status": final_status})
 
         return result
 
